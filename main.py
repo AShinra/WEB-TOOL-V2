@@ -15,11 +15,8 @@ with st.sidebar:
         st.text_input(label="PASSWORD", key="_pass")
         st.button(label="SIGN IN")
 
-users = st.secrets['USERS']
-
-st.write(type(users))
-
-# for _user, _pass in users.item():
-#     st.write(_user)
-#     st.write(_pass)
     
+    if "SIGN-IN":
+        x = st.session_state["_user"]
+        st.write(st.secrets['USERS'][x])
+
