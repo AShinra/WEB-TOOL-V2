@@ -17,7 +17,12 @@ with st.sidebar:
 
     
         if button_signin:
-            if st.session_state["_pass"] == st.write(st.secrets['USERS'][st.session_state["_user"]]):
-                st.success("Welcome")
+            try:
+                st.secrets['USERS'][st.session_state["_user"]]
+            except:
+                st.error("User does not exist")
             else:
-                st.error("Wrong Username/Password")
+                if st.session_state["_pass"] == st.write(st.secrets['USERS'][st.session_state["_user"]]):
+                    st.success("Welcome")
+                else:
+                    st.error("Wrong Password")
