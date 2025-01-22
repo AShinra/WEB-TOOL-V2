@@ -15,7 +15,9 @@ with st.sidebar:
         st.text_input(label="PASSWORD", key="_pass")
         st.button(label="SIGN IN")
 
-st.write(st.secrets['USERS'])
+users = st.secrets['USERS']
 
-
+for _user, _pass in users.item():
+    st.write(_user)
+    st.write(_pass)
     
