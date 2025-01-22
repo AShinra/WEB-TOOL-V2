@@ -16,7 +16,7 @@ with st.sidebar:
         y = st.button(label="SIGN IN")
 
     
-        if y:
+        if "SIGN IN":
             x = st.session_state["_user"]
             st.write(st.secrets['USERS'][x])
 
