@@ -20,3 +20,4 @@ with st.sidebar:
             x = st.session_state["_user"]
             st.write(st.secrets['USERS'][x])
 
+print(type(st.secrets['USERS']))
