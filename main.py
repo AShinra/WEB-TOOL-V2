@@ -15,7 +15,7 @@ with st.sidebar:
     with st.container(border=True):
         selected = option_menu(
             menu_title='Main',
-            options=['Home', 'Tools', 'Report Creator', 'SharedView Report'],
-            icons=['house', 'pc-display', 'filetype-xlsx', 'filetype-xlsx'],
+            options=['Home', 'Tools', 'Report Creator'],
+            icons=['house', 'pc-display', 'filetype-xlsx'],
             key='home_sidebar',
         )
