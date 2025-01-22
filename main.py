@@ -17,7 +17,9 @@ with st.sidebar:
 
 users = st.secrets['USERS']
 
-for _user, _pass in users.item():
-    st.write(_user)
-    st.write(_pass)
+st.write(type(users))
+
+# for _user, _pass in users.item():
+#     st.write(_user)
+#     st.write(_pass)
     
