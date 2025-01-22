@@ -22,7 +22,7 @@ with st.sidebar:
             except:
                 st.error("User does not exist")
             else:
-                if st.session_state["_pass"] == st.write(st.secrets['USERS'][st.session_state["_user"]]):
+                if st.session_state["_pass"] == st.secrets['USERS'][st.session_state["_user"]]:
                     st.success("Welcome")
                 else:
                     st.error("Wrong Password")
