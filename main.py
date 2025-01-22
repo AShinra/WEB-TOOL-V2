@@ -13,11 +13,11 @@ with st.sidebar:
     with st.container(border=True):
         st.text_input(label="USERNAME", key="_user")
         st.text_input(label="PASSWORD", key="_pass")
-        y = st.button(label="SIGN IN")
+        button_signin = st.button(label="SIGN IN")
 
     
-        if y:
-            x = st.session_state["_user"]
-            st.write(st.secrets['USERS'][x])
-
-print(type(st.secrets['USERS']))
+        if button_signin:
+            if st.session_state["_pass"] == st.write(st.secrets['USERS'][st.session_state["_user"]]):
+                st.success("Welcome")
+            else:
+                st.error("Wrong Username/Password")
