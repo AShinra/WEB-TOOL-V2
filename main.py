@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 
 with st.sidebar:
@@ -11,18 +12,9 @@ with st.sidebar:
             st.header("MMI Web Tool V2.0")
 
     with st.container(border=True):
-        st.text_input(label="USERNAME", key="_user")
-        st.text_input(label="PASSWORD", key="_pass")
-        button_signin = st.button(label="SIGN IN")
-
-    
-        if button_signin:
-            try:
-                st.secrets['USERS'][st.session_state["_user"]]
-            except:
-                st.error("User does not exist")
-            else:
-                if st.session_state["_pass"] == st.secrets['USERS'][st.session_state["_user"]]:
-                    st.success("Welcome")
-                else:
-                    st.error("Wrong Password")
+        selected = option_menu(
+            menu_title='Main',
+            options=['Home', 'Tools', 'Report Creator', 'SharedView Report'],
+            icons=['house', 'pc-display', 'filetype-xlsx', 'filetype-xlsx'],
+            key='home_sidebar',
+        )
