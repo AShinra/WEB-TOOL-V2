@@ -15,5 +15,7 @@ with st.sidebar:
         st.text_input(label="PASSWORD", key="_pass")
         st.button(label="SIGN IN")
 
+st.write(st.secrets('USERS'))
+
 
     
