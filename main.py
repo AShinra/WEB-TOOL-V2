@@ -13,10 +13,10 @@ with st.sidebar:
     with st.container(border=True):
         st.text_input(label="USERNAME", key="_user")
         st.text_input(label="PASSWORD", key="_pass")
-        st.button(label="SIGN IN")
+        y = st.button(label="SIGN IN")
 
     
-        if "SIGN-IN":
+        if y:
             x = st.session_state["_user"]
             st.write(st.secrets['USERS'][x])
 
