@@ -39,6 +39,11 @@ def blacklisted_publication():
             result = st.selectbox(label='Blacklisted', key='remove_from_blacklist', options=pub_options, )
             if result not in [None, '']:
                 remove_pub = st.button('Remove', use_container_width=True)
+                if remove_pub:
+                    pub_options.remove(st.session_state['remove_from_blacklist'])
+                    with open('json files/publications_remove.json', "w") as outfile: 
+                        json.dump(data, outfile)
+                    st.success(f'Removed {st.session_state["remove_from_blacklist"]} from the blacklist')
         with col2:
             st.text_input(label='Add Publication to Blacklist', key='pub_add')
             if st.session_state['pub_add'] not in [None, '']:
@@ -49,11 +54,6 @@ def blacklisted_publication():
                         json.dump(data, outfile)
                     st.success(f'Added {st.session_state["pub_add"]} to the blacklist')
     
-    if remove_pub:
-        pub_options.remove(st.session_state['remove_from_blacklist'])
-        with open('json files/publications_remove.json', "w") as outfile: 
-            json.dump(data, outfile)
-        st.success(f'Removed {st.session_state["remove_from_blacklist"]} from the blacklist')
     
 
         
