@@ -76,7 +76,7 @@ def cleaner():
                     df['Publication Edition'] = ''
 
                 for i in df.index:
-                    st.write(df.at[i, 'Publications'])
+                    st.write(df.at[i, 'Publication'])
 
                 # st.dataframe(df)
 
