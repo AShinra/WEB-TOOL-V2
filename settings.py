@@ -36,8 +36,8 @@ def blacklisted_publication():
     with st.container():
         col1, col2 = st.columns(2, border=True)
         with col1:
-            result = st.selectbox(label='Blacklisted', key='remove_from_blacklist', options=pub_options, )
-            if result not in [None, '']:
+            st.selectbox(label='Blacklisted', key='remove_from_blacklist', options=pub_options, )
+            if st.session_state['remove_from_blacklist'] not in [None, '']:
                 remove_pub = st.button('Remove', use_container_width=True)
                 if remove_pub:
                     pub_options.remove(st.session_state['remove_from_blacklist'])

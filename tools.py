@@ -75,7 +75,10 @@ def cleaner():
                 if st.session_state['pub_edition']:
                     df['Publication Edition'] = ''
 
-                st.dataframe(df)
+                for i in df.index:
+                    st.write(df.at[i, 'Publications'])
+
+                # st.dataframe(df)
 
 
                 
