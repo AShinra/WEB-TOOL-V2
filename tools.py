@@ -55,7 +55,9 @@ def cleaner():
                     df['Publication Tier'] = ''
                 
                 if st.session_state['roi']:
+                    df['Hit'] = 0
                     df['ROI'] = 0
+                    df['ROI Value'] = 0
                     df['ROI in Million'] = 0
                 
                 if st.session_state['tone']:
@@ -78,9 +80,10 @@ def cleaner():
 
                 for i in df.index:
                     if st.session_state['roi']:
-                        hit = df.at[i, 'Mention']/10
-                        df.at[i, 'ROI'] = (1+hit)*df.at[i, 'Pr Value']
-                        df.at[i, 'ROI in Million'] = df.at[i, 'ROI']/1000000
+                        df.at[i, 'Hit'] = df.at[i, 'Mention']/10
+                        df.at[i, 'ROI'] = df.at[i, 'Hit']*df.at[i, 'Pr Value']
+                        df.at[i, 'ROI Value'] = (1+df.at[i, 'Hit'])*df.at[i, 'Pr Value']
+                        df.at[i, 'ROI in Million'] = df.at[i, 'ROI Value']/1000000
 
                 st.dataframe(df)
 
