@@ -56,6 +56,7 @@ def cleaner():
                 
                 if st.session_state['roi']:
                     df['ROI'] = 0
+                    df['ROI in Million'] = 0
                 
                 if st.session_state['tone']:
                     df['Tone'] = ''
@@ -79,6 +80,7 @@ def cleaner():
                     if st.session_state['roi']:
                         hit = df.at[i, 'Mention']/10
                         df.at[i, 'ROI'] = (1+hit)*df.at[i, 'Pr Value']
+                        df.at[i, 'ROI in Million'] = df.at[i, 'ROI']/1000000
 
                 st.dataframe(df)
 
