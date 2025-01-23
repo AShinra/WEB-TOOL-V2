@@ -78,7 +78,7 @@ def cleaner():
                 for i in df.index:
                     if st.session_state['roi']:
                         hit = df.at[i, 'Mention']/10
-                        df.at[i, 'ROI'] = (1+hit)*df.at[i, 'PR Value']
+                        df.at[i, 'ROI'] = (1+hit)*df.at[i, 'Pr Value']
 
                 st.dataframe(df)
 
