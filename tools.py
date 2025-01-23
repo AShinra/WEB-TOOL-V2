@@ -76,9 +76,11 @@ def cleaner():
                     df['Publication Edition'] = ''
 
                 for i in df.index:
-                    st.write(df.at[i, 'Publication'])
+                    if st.session_state['roi']:
+                        hit = df.at[i, 'Mention']/10
+                        df.at[i, 'ROI'] = (1+hit)*df.at[i, 'PR Value']
 
-                # st.dataframe(df)
+                st.dataframe(df)
 
 
                 
