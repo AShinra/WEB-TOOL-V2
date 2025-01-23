@@ -1,11 +1,14 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-from tools import cleaner
+from tools import tools_main
+from settings import settings_main
 
 
 
 if __name__ == "__main__":
+
+    st.set_page_config(layout="wide")
 
     with st.sidebar:
 
@@ -14,11 +17,14 @@ if __name__ == "__main__":
 
         with st.container(border=True):
             selected = option_menu(
-                menu_title='Main',
-                options=['Home', 'Tools', 'Report Creator'],
-                icons=['house', 'pc-display', 'filetype-xlsx'],
+                menu_title='Analyst Tools',
+                options=['Home', 'Tools', 'Report Creator', 'Settings'],
+                icons=['house', 'wrench', 'filetype-xlsx', 'gear'],
                 key='home_sidebar',
             )
     
     if selected == 'Tools':
-        cleaner()
+        tools_main()
+    
+    if selected == 'Settings':
+        settings_main()
